@@ -1,0 +1,63 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>reCAPTCHA</title>
+  <style>
+    body {
+      background: #f9f9f9;
+      font-family: Arial, sans-serif;
+      display: flex;
+      height: 100vh;
+      justify-content: center;
+      align-items: center;
+    }
+    .captcha-box {
+      background: #fff;
+      border: 1px solid #d3d3d3;
+      border-radius: 3px;
+      padding: 15px 20px;
+      display: flex;
+      align-items: center;
+      box-shadow: 0 0 4px rgba(0,0,0,0.1);
+      cursor: pointer;
+    }
+    .checkbox {
+      width: 24px;
+      height: 24px;
+      border: 2px solid #ccc;
+      margin-right: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .checkbox.checked {
+      background: #4285f4;
+      color: white;
+      font-size: 18px;
+      font-weight: bold;
+    }
+    .label {
+      font-size: 16px;
+    }
+  </style>
+</head>
+<body>
+  <div class="captcha-box" onclick="redirect()">
+    <div id="checkbox" class="checkbox"></div>
+    <div class="label">I'm not a robot</div>
+  </div>
+
+  <script>
+    function redirect() {
+      const box = document.getElementById('checkbox');
+      box.classList.add('checked');
+      box.innerHTML = '✓';
+      setTimeout(() => {
+        window.location.href = 'https://example.com';
+      }, 1000);
+    }
+  </script>
+</body>
+</html>
